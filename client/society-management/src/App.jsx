@@ -1,15 +1,14 @@
-import {} from 'react'
+import './index.css'
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-
   return (
-    <>
-      <div>
-        <h1>Society Management</h1>
-      </div>
-    </>
-  )
-}
+    <Router>
+      {/* <Route path="/mission" element={} /> */}
+    </Router>
+  );
+};
 
+console.log('App.js is running')
 export default App
