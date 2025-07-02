@@ -1,12 +1,13 @@
+import Navbar from './components/Navbar/Navbar';
 import './index.css'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      {/* <Route path="/mission" element={} /> */}
-    </Router>
+    <Routes>
+      <Route path="/" element={<><Navbar/></>} />
+    </Routes>
   );
 };
 
