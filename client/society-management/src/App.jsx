@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/footer';
 import './index.css'
 
 import { Routes, Route } from 'react-router-dom';
@@ -6,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<><Navbar/></>} />
+      <Route path="/" element={<><Navbar/> <Footer/></>} />
     </Routes>
   );
 };
