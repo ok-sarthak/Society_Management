@@ -98,7 +98,7 @@ export default function Navbar() {
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg border-2 border-white px-6 py-3 text-sm sm:text-base font-medium text-white hover:bg-white hover:text-gray-900 focus:ring-4 focus:ring-gray-300 focus:outline-none transition-colors duration-200" 
                 href="/add"
               >
-                Members
+                Society Members
                 <svg className="ml-2 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"></path>
                 </svg>
@@ -107,7 +107,7 @@ export default function Navbar() {
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-transparent border-2 border-indigo-400 px-6 py-3 text-sm sm:text-base font-medium text-indigo-400 hover:bg-indigo-400 hover:text-white focus:ring-4 focus:ring-indigo-300 focus:outline-none transition-colors duration-200" 
                 href="/saved"
               >
-                Admin
+                Society Administration
               </a>
             </div>
           </div>
