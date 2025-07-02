@@ -8,11 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-<<<<<<< HEAD
-      <Route path="/" element={<><Navbar/> <Footer/></>} />
-=======
-      <Route path="/" element={<><Navbar/><Hero/></>} />
->>>>>>> 138628e2b202b9d9b9cd29ff5a0fe87b89e332ec
+      <Route path="/" element={<><Navbar/><Hero/> <Footer/></>} />
     </Routes>
   );
 };
