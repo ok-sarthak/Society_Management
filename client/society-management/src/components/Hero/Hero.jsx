@@ -48,6 +48,59 @@ export default function Hero() {
   ];
 
   return (
+    <>
+      <div>
+      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-40 h-40 bg-indigo-500 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-20 left-1/2 w-48 h-48 bg-purple-500 rounded-full filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        {/* Wave Separator */}
+        <div className="absolute inset-x-0 bottom-0">
+          <svg viewBox="0 0 224 12" fill="currentColor" className="-mb-1 w-full text-white" preserveAspectRatio="none">
+            <path d="M0,0 C48.8902582,6.27314026 86.2235915,9.40971039 112,9.40971039 C137.776408,9.40971039 175.109742,6.27314026 224,0 L224,12.0441132 L0,12.0441132 L0,0 Z"></path>
+          </svg>
+        </div>
+        
+        <div className="relative mx-auto px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-8 lg:py-24 xl:py-32">
+          <div className="relative max-w-5xl mx-auto text-center">
+            <h1 className="mb-6 sm:mb-8 text-3xl sm:text-4xl pb-3 md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight">
+              Society Management 
+              <span className="block pb-3 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                System
+              </span>
+            </h1>
+            <p className="mb-8 sm:mb-10 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Simplify your society's issue management with our intuitive platform. Track, manage, and resolve issues seamlessly, ensuring a harmonious community experience.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+              <Link
+                className="w-full sm:w-auto group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 text-base sm:text-lg font-semibold text-white hover:from-blue-600 hover:to-indigo-700 focus:ring-4 focus:ring-blue-300 focus:outline-none transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                to="/member/login"
+              >
+                Society Members
+                <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"></path>
+                </svg>
+              </Link>
+              <Link
+                className="w-full sm:w-auto group inline-flex items-center justify-center rounded-xl bg-transparent border-2 border-indigo-400 px-8 py-4 text-base sm:text-lg font-semibold text-indigo-400 hover:bg-indigo-400 hover:text-white focus:ring-4 focus:ring-indigo-300 focus:outline-none transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                to="/admin/login"
+              >
+                Society Administration
+                <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4"></path>
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
       {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0">
@@ -254,6 +307,16 @@ export default function Hero() {
                             </svg>
                         </div>
 
+                        <div className="absolute -top-12 -right-16 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center shadow-xl animate-bounce"
+                                 style={{
+                                     animationDelay: '0s',
+                                     animationDuration: '3s'
+                                 }}>
+                            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+
                         <div className="absolute -bottom-4 -left-6 w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center shadow-xl animate-bounce"
                                  style={{
                                      animationDelay: '1s',
@@ -424,5 +487,6 @@ export default function Hero() {
         </div>
       </div>
     </div>
+    </>
   );
 }
