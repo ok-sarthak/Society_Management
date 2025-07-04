@@ -1,6 +1,5 @@
 import Hero from './components/Hero/Hero';
 import Navbar from './components/Navbar/Navbar';
-import Navbar2 from './components/Navbar/Navbar2';
 import Footer from './components/Footer/Footer';
 import About from './pages/About/aboutPage';
 import MemberLogin from './pages/MemberLoginPage/MemberLogin';
