@@ -1,12 +1,12 @@
 import Hero from './components/Hero/Hero';
 import Navbar from './components/Navbar/Navbar';
-import Navbar2 from './components/Navbar/Navbar2';
 import Footer from './components/Footer/Footer';
-import About from './pages/About/aboutPage';
+import About from './pages/About/AboutPage';
 import MemberLogin from './pages/MemberLoginPage/MemberLogin';
 import ForgotPassword from './pages/MemberLoginPage/ForgotPassword';
 import AdminLogin from './pages/AdminLoginPage/AdminLogin';
 import AdminForgotPassword from './pages/AdminLoginPage/AdminForgotPassword';
+import AdminApp from './admin/App';
 import './index.css'
 
 
@@ -22,6 +22,8 @@ function App() {
       <Route path="/member/forgot-password" element={<><Navbar/><ForgotPassword/> <Footer/></>} />
       <Route path="/admin/login" element={<><Navbar/><AdminLogin/> <Footer/></>} />
       <Route path="/admin/forgot-password" element={<><Navbar/><AdminForgotPassword/> <Footer/></>} />
+      {/*Protected Routes*/}
+      <Route path="/app/admin/*" element={<><AdminApp/></>}/>
     </Routes>
   );
 };
