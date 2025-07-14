@@ -37,10 +37,10 @@ const Accounts1 = () => {
   const { isAuthenticated, loading: authLoading, user } = useAuth();
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showAddModal, setShowAddModal] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterType, setFilterType] = useState('all');
-  const [filterCategory, setFilterCategory] = useState('all');
+  // const [showAddModal, setShowAddModal] = useState(false);
+  // const [searchTerm, setSearchTerm] = useState('');
+  // const [filterType, setFilterType] = useState('all');
+  // const [filterCategory, setFilterCategory] = useState('all');
   const [hasInitialData, setHasInitialData] = useState(false);
 
   const [newTransaction, setNewTransaction] = useState({
@@ -67,8 +67,8 @@ const Accounts1 = () => {
     thisMonthExpense: 0
   });
 
-  const [selectedTransaction, setSelectedTransaction] = useState(null);
-  const [showTransactionDetail, setShowTransactionDetail] = useState(false);
+  // const [selectedTransaction, setSelectedTransaction] = useState(null);
+  // const [showTransactionDetail, setShowTransactionDetail] = useState(false);
 
   // Debug authentication state
   useEffect(() => {
@@ -333,6 +333,156 @@ const Accounts1 = () => {
     }
   };
 
+  <form onSubmit={handleAddTransaction} style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '16px' }}>
+  <div>
+    <label>Type:</label>
+    <select
+      value={newTransaction.type}
+      onChange={e => setNewTransaction({ ...newTransaction, type: e.target.value })}
+      required
+    >
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+  </div>
+  <div>
+    <label>Category:</label>
+    <select
+      value={newTransaction.category}
+      onChange={e => setNewTransaction({ ...newTransaction, category: e.target.value })}
+      required
+    >
+      <option value="maintenance">Maintenance</option>
+      <option value="utility">Utility</option>
+      <option value="repair">Repair</option>
+      <option value="salary">Salary</option>
+      <option value="purchase">Purchase</option>
+      <option value="security">Security</option>
+      <option value="cleaning">Cleaning</option>
+      <option value="gardening">Gardening</option>
+      <option value="festive">Festive</option>
+      <option value="donation">Donation</option>
+      <option value="penalty">Penalty</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label>Amount:</label>
+    <input
+      type="number"
+      value={newTransaction.amount}
+      onChange={e => setNewTransaction({ ...newTransaction, amount: e.target.value })}
+      required
+      min="0"
+      step="0.01"
+    />
+  </div>
+  <div>
+    <label>Description:</label>
+    <input
+      type="text"
+      value={newTransaction.description}
+      onChange={e => setNewTransaction({ ...newTransaction, description: e.target.value })}
+      required
+    />
+  </div>
+  <div>
+    <label>Payment Method:</label>
+    <select
+      value={newTransaction.paymentMethod}
+      onChange={e => setNewTransaction({ ...newTransaction, paymentMethod: e.target.value })}
+      required
+    >
+      <option value="cash">Cash</option>
+      <option value="cheque">Cheque</option>
+      <option value="online">Online</option>
+      <option value="bank_transfer">Bank Transfer</option>
+      <option value="upi">UPI</option>
+    </select>
+  </div>
+  {/* Optional fields for income/maintenance */}
+  {newTransaction.type === 'income' && newTransaction.category === 'maintenance' && (
+    <>
+      <div>
+        <label>Building Number:</label>
+        <input
+          type="text"
+          value={newTransaction.buildingNumber}
+          onChange={e => setNewTransaction({ ...newTransaction, buildingNumber: e.target.value })}
+          required
+        />
+      </div>
+      <div>
+        <label>Block Number:</label>
+        <input
+          type="text"
+          value={newTransaction.blockNumber}
+          onChange={e => setNewTransaction({ ...newTransaction, blockNumber: e.target.value })}
+          required
+        />
+      </div>
+      <div>
+        <label>Flat Number:</label>
+        <input
+          type="text"
+          value={newTransaction.flatNumber}
+          onChange={e => setNewTransaction({ ...newTransaction, flatNumber: e.target.value })}
+          required
+        />
+      </div>
+    </>
+  )}
+  {/* Optional fields for expense/vendor */}
+  {newTransaction.type === 'expense' && ['utility', 'repair', 'purchase'].includes(newTransaction.category) && (
+    <>
+      <div>
+        <label>Vendor Name:</label>
+        <input
+          type="text"
+          value={newTransaction.vendorName}
+          onChange={e => setNewTransaction({ ...newTransaction, vendorName: e.target.value })}
+          required
+        />
+      </div>
+      <div>
+        <label>Vendor Contact:</label>
+        <input
+          type="text"
+          value={newTransaction.vendorContact}
+          onChange={e => setNewTransaction({ ...newTransaction, vendorContact: e.target.value })}
+        />
+      </div>
+    </>
+  )}
+  <div>
+    <label>Receipt Number:</label>
+    <input
+      type="text"
+      value={newTransaction.receiptNumber}
+      onChange={e => setNewTransaction({ ...newTransaction, receiptNumber: e.target.value })}
+    />
+  </div>
+  <div>
+    <label>Invoice Number:</label>
+    <input
+      type="text"
+      value={newTransaction.invoiceNumber}
+      onChange={e => setNewTransaction({ ...newTransaction, invoiceNumber: e.target.value })}
+    />
+  </div>
+  <div>
+    <label>Remarks:</label>
+    <input
+      type="text"
+      value={newTransaction.remarks}
+      onChange={e => setNewTransaction({ ...newTransaction, remarks: e.target.value })}
+    />
+  </div>
+  <button type="submit" style={{ background: '#3b82f6', color: 'white', padding: '10px', borderRadius: '8px', border: 'none', fontWeight: 'bold', cursor: 'pointer' }}>
+    Add Transaction
+  </button>
+</form>
+
   const filteredTransactions = transactions.filter(transaction => {
     if (!transaction) return false;
     
@@ -457,12 +607,14 @@ const Accounts1 = () => {
     );
   }
 
-  return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-      padding: '20px'
-    }}>
+  
+   return (
+    
+      <div style={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+        padding: '20px'
+      }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ 
           backgroundColor: 'white', 
@@ -855,8 +1007,12 @@ const Accounts1 = () => {
           
         </div>
       </div>
-    </div>
-  );
+      </div>
+    
+  )
 };
+
+
+
 
 export default Accounts1;
