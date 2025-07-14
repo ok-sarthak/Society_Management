@@ -33,7 +33,7 @@ const MemberLogin = () => {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-cyan-400/30 rounded-full animate-bounce"
+            className="absolute w-2 h-2 bg-cyan-400/30 rounded-full animate-pulse group-hover:opacity-50"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -45,7 +45,7 @@ const MemberLogin = () => {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 w-full max-w-md mx-4 animate-fadeInUp">
+      <div className="relative z-10 w-full max-w-md mx-4 animate-fadeInUp mb-12">
         {/* Logo/Brand Section */}
         <div className="text-center mb-8 animate-slideInDown">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-full shadow-2xl mb-4 animate-bounceIn">

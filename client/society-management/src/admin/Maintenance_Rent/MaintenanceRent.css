@@ -1,0 +1,10 @@
+/* Add subtitle styling */
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 h2::after {
+  content: 'Complete maintenance request form';
+  display: block;
+  color: #bfdbfe;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.9;
+}

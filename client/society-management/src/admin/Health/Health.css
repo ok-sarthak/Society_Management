@@ -1,0 +1,444 @@
+/* Health Records Page Styles */
+
+/* Gradient background animation */
+.min-h-screen.bg-gradient-to-br {
+  background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Health record cards with medical theme */
+.health-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.health-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.health-card:hover::before {
+  left: 100%;
+}
+
+.health-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(31, 38, 135, 0.25);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+/* Urgency indicators with pulse effects */
+.urgency-low {
+  background: linear-gradient(135deg, #10b981, #059669);
+  animation: pulse-green 3s ease-in-out infinite;
+}
+
+.urgency-medium {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  animation: pulse-yellow 3s ease-in-out infinite;
+}
+
+.urgency-high {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  animation: pulse-orange 3s ease-in-out infinite;
+}
+
+.urgency-critical {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulse-orange {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+}
+
+/* Status badges for medical records */
+.status-active {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.status-completed {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.status-ongoing {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.status-follow-up {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.status-cancelled {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Medical record type badges */
+.type-checkup {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.type-emergency {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  animation: emergency-blink 1.5s ease-in-out infinite;
+}
+
+.type-vaccination {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.type-prescription {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+}
+
+.type-lab-test {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.type-specialist {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.type-surgery {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.type-therapy {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.type-dental {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+}
+
+.type-eye-care {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+@keyframes emergency-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Follow-up and insurance indicators */
+.follow-up-indicator {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 1px solid #f59e0b;
+  position: relative;
+  overflow: hidden;
+}
+
+.follow-up-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
+  animation: follow-up-shine 3s infinite;
+}
+
+@keyframes follow-up-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.insurance-indicator {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border: 1px solid #10b981;
+}
+
+/* Medical icons with hover effects */
+.medical-icon {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.medical-icon:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Summary cards with medical theme */
+.medical-summary-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.medical-summary-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient, linear-gradient(90deg, #3b82f6, #8b5cf6));
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.medical-summary-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Emergency alert styling */
+.emergency-card {
+  border-left: 4px solid #ef4444;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  animation: emergency-pulse 2s ease-in-out infinite;
+}
+
+@keyframes emergency-pulse {
+  0%, 100% { border-left-color: #ef4444; }
+  50% { border-left-color: #dc2626; }
+}
+
+/* Modal styling for medical forms */
+.medical-modal {
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.medical-form {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input styling */
+.medical-input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  transform: translateY(-1px);
+}
+
+.medical-textarea:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Date inputs with medical theme */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 0.25rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Checkbox styling for insurance */
+.insurance-checkbox {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  border: 2px solid #10b981;
+  border-radius: 0.25rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.insurance-checkbox:checked {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #10b981;
+}
+
+.insurance-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+/* Button styling with medical theme */
+.medical-btn-primary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.medical-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.medical-btn-primary:hover::before {
+  left: 100%;
+}
+
+.medical-btn-primary:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Cost display styling */
+.cost-display {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border: 1px solid #10b981;
+  color: #047857;
+  font-weight: 600;
+  position: relative;
+}
+
+.cost-display::before {
+  content: '₹';
+  margin-right: 0.25rem;
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+/* Loading spinner for medical data */
+.medical-spinner {
+  border: 3px solid #ecfdf5;
+  border-top: 3px solid #10b981;
+  animation: medical-spin 1s linear infinite;
+}
+
+@keyframes medical-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .health-records-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .medical-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .medical-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .medical-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .badge-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .health-card {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+}
+
+/* Custom scrollbar for medical modals */
+.medical-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.medical-modal-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.medical-modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 4px;
+}
+
+.medical-modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* Animation for new records */
+.new-record-animation {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Health status indicators */
+.health-good {
+  color: #059669;
+}
+
+.health-warning {
+  color: #d97706;
+}
+
+.health-critical {
+  color: #dc2626;
+}
+
+/* Enhanced hover effects for interactive elements */
+.interactive-element {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-element:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}

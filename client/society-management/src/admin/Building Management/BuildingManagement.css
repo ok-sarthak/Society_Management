@@ -1,0 +1,330 @@
+/* Building Management Styles */
+
+/* Gradient background animation */
+.min-h-screen.bg-gradient-to-br {
+  background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Building cards with enhanced hover effects */
+.building-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.building-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.building-card:hover::before {
+  left: 100%;
+}
+
+.building-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(31, 38, 135, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Occupancy progress bar animation */
+.occupancy-progress {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: width 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.occupancy-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Summary cards animation */
+.summary-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.summary-card:hover::before {
+  left: 100%;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Button animations */
+.btn-gradient {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-gradient:hover::before {
+  left: 100%;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Status badges with enhanced animations */
+.status-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-badge.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  animation: pulse-green 2s infinite;
+}
+
+.status-badge.maintenance {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  animation: pulse-yellow 2s infinite;
+}
+
+.status-badge.inactive {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+}
+
+/* Amenity tags */
+.amenity-tag {
+  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.amenity-tag:hover {
+  background: linear-gradient(135deg, #bfdbfe, #c7d2fe);
+  transform: translateY(-1px);
+}
+
+/* Modal animations */
+.modal-overlay {
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  animation: slideInUp 0.3s ease;
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Input focus effects */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+  transform: translateY(-1px);
+  border-color: #3b82f6 !important;
+}
+
+/* Checkbox custom styling */
+.checkbox-custom {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  border: 2px solid #d1d5db;
+  border-radius: 0.25rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-custom:checked {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-color: #3b82f6;
+}
+
+.checkbox-custom:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Grid responsive improvements */
+@media (max-width: 768px) {
+  .building-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .modal-content {
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .amenities-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+/* Enhanced shadow effects */
+.enhanced-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.enhanced-shadow:hover {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}

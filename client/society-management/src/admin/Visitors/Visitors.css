@@ -1,0 +1,264 @@
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal backdrop styling */
+.fixed.inset-0.bg-black.bg-opacity-50 {
+  backdrop-filter: blur(4px);
+}
+
+
+.bg-white.rounded-2xl.shadow-2xl {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: relative;
+  
+}
+
+/* Modal header gradient design */
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 {
+  background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%) !important;
+  color: white !important;
+  padding: 1.5rem !important;
+  border: none !important;
+  border-radius: 1rem 1rem 0 0 !important;
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Header content styling */
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 .flex.items-center.justify-between {
+  z-index: 1;
+  position: relative;
+}
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 h2 {
+  color: white !important;
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Add subtitle styling */
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 h2::after {
+  content: 'Complete visitor registration form';
+  display: block;
+  color: #bfdbfe;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Close button styling - FIXED: Bright white color */
+
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 button {
+  color: #ffffff !important; /* Bright white for visibility */
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 0.5rem !important;
+  border-radius: 9999px !important;
+  transition: all 0.2s ease !important;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 button:hover {
+  color: #f3f4f6 !important; /* Slightly darker on hover */
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.1) !important;
+}
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 button:active {
+  transform: scale(0.95) !important;
+}
+
+.sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 button svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+/* Animation for modal header */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal body styling */
+.overflow-y-auto.max-h-\[calc\(90vh-80px\)\] {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 140px) !important;
+}
+
+.overflow-y-auto.max-h-\[calc\(90vh-80px\)\]::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto.max-h-\[calc\(90vh-80px\)\]::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.overflow-y-auto.max-h-\[calc\(90vh-80px\)\]::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.overflow-y-auto.max-h-\[calc\(90vh-80px\)\]::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Form styling enhancements */
+.space-y-2 label {
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.space-y-2 input,
+.space-y-2 select,
+.space-y-2 textarea {
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.space-y-2 input:focus,
+.space-y-2 select:focus,
+.space-y-2 textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.space-y-2 input:hover,
+.space-y-2 select:hover,
+.space-y-2 textarea:hover {
+  border-color: #d1d5db;
+}
+
+/* Button styling */
+.flex.justify-end.space-x-4 button[type="submit"] {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.025em !important;
+}
+
+.flex.justify-end.space-x-4 button[type="submit"]:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35) !important;
+}
+
+.flex.justify-end.space-x-4 button[type="button"] {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.025em !important;
+}
+
+.flex.justify-end.space-x-4 button[type="button"]:hover {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+  color: #475569 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 {
+    padding: 1rem !important;
+  }
+  
+  .sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .sticky.top-0.bg-white.rounded-t-2xl.border-b.border-gray-200 h2::after {
+    font-size: 0.75rem !important;
+  }
+  
+  .flex.justify-end.space-x-4 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .flex.justify-end.space-x-4 button {
+    width: 100% !important;
+  }
+}
+
+/* Focus trap styling */
+.bg-white.rounded-2xl.shadow-2xl:focus-within {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Readonly input styling */
+.bg-gray-50 {
+  background-color: #f9fafb !important;
+  color: #6b7280 !important;
+  cursor: not-allowed !important;
+}
+
+/* Helper text styling */
+.text-xs.text-gray-500 {
+  font-style: italic;
+  margin-top: 0.25rem;
+}

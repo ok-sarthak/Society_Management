@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Backend Server",
+			"type": "shell",
+			"command": "cd server; npm install; npm start",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Start Frontend Dev Server",
+			"type": "shell",
+			"command": "cd client/society-management; npm install; npm run dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const { login, error: authError, clearError } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    clearError();
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Admin logging in with:", email, password);
-      alert("Admin login functionality to be implemented!");
+    try {
+      const result = await login({
+        email,
+        password
+      });
+
+      if (result.success) {
+        // Redirect to admin dashboard
+        navigate('/app/admin');
+      }
+      // Error will be handled by AuthContext if result.success is false
+    } catch (error) {
+      console.error('Login error:', error);
+    } finally {
       setIsLoading(false);
-    }, 2000);
+    }
   };
 
   return (
@@ -33,7 +47,7 @@ const AdminLogin = () => {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-bounce"
+            className="absolute w-2 h-2 bg-blue-500/30 rounded-full animate-pulse  group-hover:opacity-50"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -45,7 +59,7 @@ const AdminLogin = () => {
       </div>
 
       {/* Main Container */}
-      <div className="relative z-10 w-full max-w-md mx-4 animate-fadeInUp">
+      <div className="relative z-10 w-full max-w-md mx-4 animate-fadeInUp mb-12">
         {/* Logo/Brand Section */}
         <div className="text-center mb-8 animate-slideInDown">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-2xl mb-4 animate-bounceIn">
@@ -53,13 +67,22 @@ const AdminLogin = () => {
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Society Admin</h1>
+          <h1 className="text-3xl font-bold text-white mb-2 ">Society Admin</h1>
           <p className="text-blue-200/80 text-sm">Secure Access Portal</p>
         </div>
 
         {/* Login Form */}
-        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8 animate-fadeIn">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl p-8 animate-fadeIn ">
           <form onSubmit={handleLogin} className="space-y-6">
+            {/* Error Message */}
+            {authError && (
+              <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-4">
+                <p className="text-red-400 text-sm font-medium">
+                  {authError}
+                </p>
+              </div>
+            )}
+            
             {/* Email Input */}
             <div className="relative group">
               <label className="block text-sm font-medium text-blue-200 mb-2 transition-colors duration-200">

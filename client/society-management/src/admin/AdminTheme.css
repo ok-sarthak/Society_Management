@@ -1,0 +1,322 @@
+Global Admin Dark Theme Styles
+
+/* Main Container */
+.admin-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated Background Elements */
+.admin-bg-elements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.admin-bg-elements::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  filter: blur(3rem);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.admin-bg-elements::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -40%;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  filter: blur(3rem);
+  animation: pulse 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.admin-content {
+  position: relative;
+  z-index: 10;
+  padding: 1.5rem;
+}
+
+/* Typography */
+.admin-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.admin-subtitle {
+  color: #cbd5e1;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+/* Cards */
+.admin-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.admin-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.admin-card:hover::before {
+  left: 100%;
+}
+
+/* Buttons */
+.admin-btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+
+.admin-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Form Elements */
+.admin-input {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.admin-input::placeholder {
+  color: #94a3b8;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.admin-select {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.admin-select option {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.admin-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Text Colors */
+.admin-text-primary {
+  color: #ffffff;
+}
+
+.admin-text-secondary {
+  color: #cbd5e1;
+}
+
+.admin-text-muted {
+  color: #94a3b8;
+}
+
+/* Badges */
+.admin-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.admin-badge-primary {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.admin-badge-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.admin-badge-warning {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.admin-badge-danger {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.admin-table-header {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table-row {
+  color: #ffffff;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.admin-table-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Modal */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.admin-modal-content {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Grid Layouts */
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.admin-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-content {
+    padding: 1rem;
+  }
+  
+  .admin-title {
+    font-size: 2rem;
+  }
+  
+  .admin-grid-2,
+  .admin-grid-3,
+  .admin-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}

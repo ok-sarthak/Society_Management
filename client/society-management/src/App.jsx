@@ -7,6 +7,9 @@ import ForgotPassword from './pages/MemberLoginPage/ForgotPassword';
 import AdminLogin from './pages/AdminLoginPage/AdminLogin';
 import AdminForgotPassword from './pages/AdminLoginPage/AdminForgotPassword';
 import AdminApp from './admin/App';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
 import './index.css'
 
 
@@ -15,6 +18,8 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
+    <AuthProvider>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<><Navbar/><Hero/><Footer/></>} />
       <Route path="/about" element={<><Navbar/><About/><Footer/></>} />
@@ -23,8 +28,13 @@ function App() {
       <Route path="/admin/login" element={<><Navbar/><AdminLogin/> <Footer/></>} />
       <Route path="/admin/forgot-password" element={<><Navbar/><AdminForgotPassword/> <Footer/></>} />
       {/*Protected Routes*/}
-      <Route path="/app/admin/*" element={<><AdminApp/></>}/>
+      <Route path="/app/admin/*" element={
+        <ProtectedRoute roles={['admin']}>
+          <AdminApp/>
+        </ProtectedRoute>
+      }/>
     </Routes>
+    </AuthProvider>
   );
 };
 

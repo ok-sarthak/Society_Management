@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Home/Home.jsx'
-import Accounts from './Accounts/Account'
+import Account1 from './Accounts1/Accounts1.jsx'
 import BuildingManagement from './Building Management/buildingManagement.jsx'
 import AdminSettings from './Admin_Settings/adminSettings.jsx'
 import CoCurricular from './Co_Curricular/coCurricular.jsx'
@@ -9,7 +9,7 @@ import ComplaintFeedback from './Complaints_Feedback/ComplaintsFeedback.jsx'
 import EventsActivities from './Events_Activities/eventsActivities.jsx'
 import Health from './Health/health.jsx'
 import NoticesCommunication from './Notices_Communication/noticesCommunication.jsx'
-import Members from './Members/members.jsx'
+import Members from './Members/Members.jsx'
 import MaintenanceRent from './Maintenance_Rent/maintenanceRent.jsx'
 import ReportsAnalysis from './Reports_Analysis/ReportsAnalysis.jsx'
 import Services from './Services/Services.jsx'
@@ -25,7 +25,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<><Home/></>} />
-        <Route path="/accounts" element={<><Accounts/></>} />
+        <Route path="/accounts" element={<><Account1/></>} />
         <Route path="/adminsettings" element={<><AdminSettings/></>} />
         <Route path="/buildingmanagement" element={<><BuildingManagement/></>} />
         <Route path="/cocurricular" element={<><CoCurricular/></>} />
