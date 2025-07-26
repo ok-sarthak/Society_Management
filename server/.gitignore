@@ -1,0 +1,20 @@
+# Secure credentials for SERVER
+.env
+*.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env.*
+credentials.json
+secrets.json
+private.key
+*.pem
+*.crt
+*.p12
+*.jks
+*.keystore
+firebase-adminsdk.json
+config.js
+auth.json
+node_modules
